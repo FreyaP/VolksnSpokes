@@ -22,8 +22,8 @@ const GlobalStyles = createGlobalStyle`
     border-width: 1px;
   }
 
-  button {
-    background: var(--primary);
+  button, .button {
+    background: var(--secondary);
     color: var(--light);
     border: 0;
     padding: 0.6rem 1rem;
