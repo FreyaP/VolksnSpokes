@@ -3,10 +3,10 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyles = createGlobalStyle`
   :root {
     --secondary: #CF69A8;
-    --primary: #438188;
+    --primary: #0ABCD4;
     --accent: #DC767B;
-    --light: #F5EFF3;
-    --dark: #301E30;
+    --light: #F6F6F6;
+    --dark: #202023;
   }
   html {
     font-size: 10px;
@@ -14,7 +14,7 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     font-size: 2rem;
-    color: var(--dark);
+    color: var(--light);
   }
 
   fieldset {

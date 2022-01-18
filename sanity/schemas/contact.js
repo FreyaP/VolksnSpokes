@@ -17,8 +17,18 @@ export default {
       type: 'number',
     },
     {
-      name: 'address',
-      title: 'Address or location',
+      name: 'streetNumber',
+      title: 'Street Number',
+      type: 'number',
+    },
+    {
+      name: 'street',
+      title: 'Street Name',
+      type: 'string',
+    },
+    {
+      name: 'city',
+      title: 'City',
       type: 'string',
     },
   ],

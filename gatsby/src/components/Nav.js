@@ -4,23 +4,27 @@ import styled from 'styled-components';
 import logo from '../../static/logo.png';
 
 const NavStyles = styled.nav`
+  background: var(--dark);
+
   ul {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr;
     text-align: center;
     gap: 2rem;
     align-items: center;
+    margin: 0;
+    padding: 2rem;
   }
   a {
     text-decoration: none;
-    color: var(--dark);
+    color: var(--light);
     font-size: 2.5rem;
     &:hover {
-      color: var(--secondary);
+      color: var(--primary);
     }
   }
   [aria-current='page'] {
-    color: var(--secondary);
+    color: var(--primary);
   }
 
   .logo {
