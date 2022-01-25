@@ -1,7 +1,8 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
+import Values from '../components/Values';
 
 const PageStyles = styled.div`
   background: var(--dark);
@@ -48,8 +49,22 @@ const ServiceStyles = styled.div`
     padding: 0 1rem;
     text-align: center;
   }
+  .price {
+    color: var(--accent);
+    font-size: 3rem;
+  }
   h2 {
     padding: 2rem 0;
+  }
+`;
+const ValueFooterStyles = styled.div`
+  margin-top: 20rem;
+  a {
+    color: var(--light);
+    transition: 0.75s ease-in-out;
+    &:hover {
+      color: var(--secondary);
+    }
   }
 `;
 
@@ -59,7 +74,7 @@ function SingleService({ service }) {
       <h2>{service.name}</h2>
       <Img fluid={service.image.asset.fluid} />
       <p>{service.description}</p>
-      <p>${service.price}</p>
+      <p className="price">${service.price}</p>
     </ServiceStyles>
   );
 }
@@ -88,6 +103,12 @@ export default function ServicesPage({ data }) {
           <SingleService service={service} key={service.id} />
         ))}
       </ServiceGrid>
+      <ValueFooterStyles>
+        <Link to="/about">
+          <h2>See who we are</h2>
+          <Values />
+        </Link>
+      </ValueFooterStyles>
     </PageStyles>
   );
 }

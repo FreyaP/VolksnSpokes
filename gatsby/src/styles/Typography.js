@@ -18,6 +18,7 @@ const Typography = createGlobalStyle`
   }
   p, li {
     letter-spacing: 0.5px;
+    line-height: 1.3;
   }
   h1,h2,h3,h4,h5,h6 {
     font-weight: bold;
@@ -29,9 +30,8 @@ const Typography = createGlobalStyle`
   }
   a {
     color: var(--dark);
-    text-decoration-color: var(--secondary);
-    /* Chrome renders this weird with this font, so we turn it off */
-    text-decoration-skip-ink: none;
+    text-decoration: none;
+    
   }
   /*
   mark, .mark {

@@ -17,18 +17,20 @@ const NavStyles = styled.nav`
   }
   a {
     text-decoration: none;
+    transition: ease-in-out 0.25s;
     color: var(--light);
     font-size: 2.5rem;
     &:hover {
-      color: var(--primary);
+      color: var(--secondary);
     }
   }
   [aria-current='page'] {
-    color: var(--primary);
+    color: var(--secondary);
   }
 
   .logo {
     justify-self: start;
+    padding-left: 3rem;
     img {
       width: clamp(100px, 25vw, 300px);
     }
