@@ -39,13 +39,15 @@ const Typography = createGlobalStyle`
       }
     }
   }
-  
-
-  .center {
-    text-align: center;
+  .flex {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    .button {
+      margin-right: 2rem;
+    }
   }
-
-  
 `;
 
 export default Typography;

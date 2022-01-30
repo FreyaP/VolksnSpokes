@@ -9,22 +9,11 @@ const HeroStyles = styled.div`
   h1 {
     text-align: left;
   }
-  .button {
-    margin-right: 2rem;
-  }
+
   a {
     margin-top: 7rem;
     text-transform: uppercase;
     font-weight: bold;
-    width: fit-content;
-    display: flex;
-    align-items: center;
-    &:hover {
-      .button {
-        background: var(--secondary);
-        transform: rotate(360deg);
-      }
-    }
   }
 `;
 
@@ -39,7 +28,7 @@ export default function Hero() {
           adventuring further.
         </p>
         <p>Tuning bikes along the Sea to Sky, BC</p>
-        <Link to="/about">
+        <Link to="/about" className="flex">
           <GiCarWheel className="button" />
           <span>Learn more about us</span>
         </Link>

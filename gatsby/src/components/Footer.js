@@ -27,16 +27,6 @@ const FooterStyles = styled.footer`
     font-size: 2.5rem;
     margin: 6rem 0 2rem 0;
   }
-
-  .flex {
-    width: fit-content;
-    display: flex;
-    align-items: center;
-    margin-bottom: 2rem;
-    .button {
-      margin-right: 2rem;
-    }
-  }
   .rights {
     grid-row: 2;
   }
@@ -48,19 +38,7 @@ const FooterStyles = styled.footer`
     display: flex;
     justify-content: space-around;
   }
-  /*
-  a {
-    color: var(--light);
-    transition: ease-in-out 0.25s;
-    &:hover {
-      color: var(--secondary);
-      .button {
-        background: var(--secondary);
-        transform: rotate(360deg);
-      }
-    }
-  }
-  */
+
   .socials {
     margin-top: 3rem;
   }
