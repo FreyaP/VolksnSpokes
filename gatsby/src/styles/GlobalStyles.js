@@ -17,24 +17,19 @@ const GlobalStyles = createGlobalStyle`
     color: var(--light);
   }
 
-  fieldset {
-    border-color: rgba(0,0,0,0.1);
-    border-width: 1px;
-  }
 
-  button, .button {
-    background: var(--secondary);
-    color: var(--light);
+  .button {
+    background: var(--primary);
+    color: var(--dark);
     border: 0;
-    padding: 0.6rem 1rem;
-    border-radius: 2px;
+    font-size: 3rem;
+    padding: 0.5rem;
+    border-radius: 50%;
     cursor: pointer;
-    --cast: 2px;
-    box-shadow: var(--cast) var(--cast) 0 var(--dark);
-    text-shadow: 0.5px 0.5px 0 rgba(0,0,0,0.2);
-    transition: all 0.2s;
+    transition: ease-in 0.5s;
     &:hover {
-      --cast: 4px;
+     transform: rotate(360deg);
+     background: var(--secondary);
     }
   }
 
@@ -60,21 +55,12 @@ const GlobalStyles = createGlobalStyle`
     border: 3px solid var(--light);
   }
 
-  hr {
-    border: 0;
-    height: 8px;
-    
-  }
 
   img {
     max-width: 100%;
   }
 
-  .tilt {
-    transform: rotate(-2deg);
-    position: relative;
-    display: inline-block;
-  }
+  
   li {
     list-style: none;
   }

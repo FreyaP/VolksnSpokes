@@ -4,6 +4,9 @@ import Img from 'gatsby-image';
 import styled from 'styled-components';
 import Values from '../components/Values';
 
+function compareOrder(a, b) {
+  return parseInt(a.props.about.order) - parseInt(b.props.about.order);
+}
 const PageStyles = styled.div`
   background: var(--dark);
   padding: 10rem 20rem;
@@ -29,28 +32,59 @@ const HeadingStyles = styled.div`
 `;
 
 const AboutGrid = styled.div`
+  @-webkit-keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
   margin: 10rem 0;
   display: grid;
-
   gap: 20rem 3em;
   grid-template-columns: 1fr 1fr;
   .gatsby-image-wrapper {
     max-height: 100%;
-    max-width: 400px;
+    max-width: 800px;
+    border-radius: 20% 50% 20% 10%;
     border: 1px solid var(--dark);
-    filter: grayscale(100%);
   }
-  .second {
-    grid-column: 1;
-    grid-row: 2;
+
+  .slider {
+    height: 500px;
+    width: auto;
+    overflow: hidden;
+  }
+  .slider:hover {
+    .top {
+      display: none;
+      -webkit-animation: fadeIn 1.5s ease-in-out;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    .hover {
+      display: block;
+      -webkit-animation: fadeIn 1.5s ease-in-out;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+  }
+  .hover {
+    display: none;
   }
 `;
 const SingleAboutStyles = styled.div`
-  background: var(--accent);
   padding: 2rem;
   align-self: center;
   h3 {
-    color: var(--dark);
+    color: var(--secondary);
   }
   p {
     padding: 1rem 3rem;
@@ -64,11 +98,10 @@ function SingleAboutQ({ about }) {
         <h3>{about.title}</h3>
         <p>{about.paragragh}</p>
       </SingleAboutStyles>
-
-      <Img
-        fluid={about.image.asset.fluid}
-        className={about.order === 2 ? 'second' : ''}
-      />
+      <div className="slider">
+        <Img fluid={about.image.asset.fluid} className="top" />
+        <Img fluid={about.hover_image.asset.fluid} className="hover" />
+      </div>
     </>
   );
 }
@@ -88,9 +121,9 @@ export default function AboutPage({ data }) {
         <Values />
       </HeadingStyles>
       <AboutGrid>
-        {aboutQs.map((about) => (
-          <SingleAboutQ about={about} key={about.id} />
-        ))}
+        {aboutQs
+          .map((about) => <SingleAboutQ about={about} key={about.id} />)
+          .sort(compareOrder)}
       </AboutGrid>
     </PageStyles>
   );
@@ -106,7 +139,14 @@ export const query = graphql`
         id
         image {
           asset {
-            fluid(maxWidth: 400) {
+            fluid(maxWidth: 800) {
+              ...GatsbySanityImageFluid
+            }
+          }
+        }
+        hover_image {
+          asset {
+            fluid(maxWidth: 800) {
               ...GatsbySanityImageFluid
             }
           }

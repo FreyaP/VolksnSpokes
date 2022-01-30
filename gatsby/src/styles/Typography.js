@@ -25,30 +25,27 @@ const Typography = createGlobalStyle`
     margin: 0;
     color: var(--primary);
     text-align: center;
-    
     text-transform: uppercase;
   }
   a {
-    color: var(--dark);
+    color: var(--light);
     text-decoration: none;
-    
+    transition: ease-in-out 0.25s;
+    &:hover {
+      color: var(--secondary);
+      .button {
+        background: var(--secondary);
+        transform: rotate(360deg);
+      }
+    }
   }
-  /*
-  mark, .mark {
-    background: var(--accent);
-    padding: 0 2px 2px 2px;
-    margin: 0;
-    display: inline;
-    line-height: 1;
-  }*/
+  
 
   .center {
     text-align: center;
   }
 
-  .tilt {
-    transform: rotate(-2deg);
-  }
+  
 `;
 
 export default Typography;

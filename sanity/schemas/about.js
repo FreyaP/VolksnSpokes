@@ -20,7 +20,15 @@ export default {
     },
     {
       name: 'image',
-      title: 'Image related to the question',
+      title: 'Top Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    },
+    {
+      name: 'hover_image',
+      title: 'Image On Hover',
       type: 'image',
       options: {
         hotspot: true,
