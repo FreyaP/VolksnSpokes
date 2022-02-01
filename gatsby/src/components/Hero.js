@@ -1,7 +1,7 @@
-import { Link } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
 import { GiCarWheel } from 'react-icons/gi';
+import { Link } from 'gatsby';
 
 const HeroStyles = styled.div`
   padding: 5rem;
@@ -17,17 +17,14 @@ const HeroStyles = styled.div`
   }
 `;
 
-export default function Hero() {
+export default function Hero({ home }) {
   return (
     <HeroStyles>
       <div>
-        <h1>Life's short, ride more</h1>
+        <h1>{home[0].heading}</h1>
 
-        <p>
-          Volks 'N' Spokes is the mobile bike repair shop that gets you
-          adventuring further.
-        </p>
-        <p>Tuning bikes along the Sea to Sky, BC</p>
+        <p>{home[0].subheading}</p>
+        <p>{home[0].altheading}</p>
         <Link to="/about" className="flex">
           <GiCarWheel className="button" />
           <span>Learn more about us</span>

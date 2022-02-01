@@ -9,6 +9,7 @@ export default {
     description: `Squamish mobile bike mechanic offering pick up and drop off service for bike repairs. Friendly advice and high quality repair.`,
   },
   plugins: [
+    'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
     {
       // name of plugin - plugin for sourcing data from sanity to graphql

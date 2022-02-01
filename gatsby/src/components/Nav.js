@@ -1,10 +1,17 @@
 import { Link } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
+import { HiArrowCircleUp } from 'react-icons/hi';
 import logo from '../../static/logo.png';
 
 const NavStyles = styled.nav`
   background: var(--dark);
+  .top {
+    position: fixed;
+    z-index: 9999;
+    bottom: 2rem;
+    right: 3rem;
+  }
 
   ul {
     display: grid;
@@ -56,6 +63,13 @@ export default function Nav() {
           <Link to="#contact">Contact</Link>
         </li>
       </ul>
+      <Link
+        to=" "
+        className="top"
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      >
+        <HiArrowCircleUp className="button" />
+      </Link>
     </NavStyles>
   );
 }

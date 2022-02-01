@@ -5,6 +5,8 @@ import { ImHipster } from 'react-icons/im';
 import styled from 'styled-components';
 
 const ValueStyles = styled.div`
+  background: var(--light);
+  padding: 15rem 10rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 
@@ -13,11 +15,14 @@ const ValueStyles = styled.div`
 
   svg {
     font-size: 10rem;
+    color: var(--dark);
   }
   h5 {
     margin-top: 2rem;
+    color: var(--secondary);
   }
   p {
+    color: var(--dark);
     padding: 1rem 5rem;
   }
 `;

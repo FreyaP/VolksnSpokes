@@ -3,15 +3,17 @@ import React from 'react';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
 import Values from '../components/Values';
+import SEO from '../components/SEO';
 
 function compareOrder(a, b) {
   return parseInt(a.props.about.order) - parseInt(b.props.about.order);
 }
 const PageStyles = styled.div`
   background: var(--dark);
-  padding: 10rem 20rem;
+  padding: 10rem 0;
 `;
 const HeadingStyles = styled.div`
+  padding: 0 20rem;
   margin-bottom: 15rem;
   h2 {
     margin-bottom: 5rem;
@@ -34,7 +36,7 @@ const HeadingStyles = styled.div`
 const AboutGrid = styled.div`
   @-webkit-keyframes fadeIn {
     from {
-      opacity: 0;
+      opacity: 0.3;
     }
     to {
       opacity: 1;
@@ -42,15 +44,15 @@ const AboutGrid = styled.div`
   }
   @keyframes fadeIn {
     from {
-      opacity: 0;
+      opacity: 0.3;
     }
     to {
       opacity: 1;
     }
   }
-  margin: 10rem 0;
+  margin: 15rem 5rem;
   display: grid;
-  gap: 20rem 3em;
+  gap: 15rem 3em;
   grid-template-columns: 1fr 1fr;
   .gatsby-image-wrapper {
     max-height: 100%;
@@ -67,13 +69,13 @@ const AboutGrid = styled.div`
   .slider:hover {
     .top {
       display: none;
-      -webkit-animation: fadeIn 1.5s ease-in-out;
-      animation: fadeIn 1.5s ease-in-out;
+      -webkit-animation: fadeIn 1s ease-in-out;
+      animation: fadeIn 1s ease-in-out;
     }
     .hover {
       display: block;
-      -webkit-animation: fadeIn 1.5s ease-in-out;
-      animation: fadeIn 1.5s ease-in-out;
+      -webkit-animation: fadeIn 1s ease-in-out;
+      animation: fadeIn 1s ease-in-out;
     }
   }
   .hover {
@@ -109,23 +111,26 @@ function SingleAboutQ({ about }) {
 export default function AboutPage({ data }) {
   const aboutQs = data.about.nodes;
   return (
-    <PageStyles>
-      <HeadingStyles>
-        <h2>Our Story</h2>
-        <h3>Who We Are</h3>
-        <h4>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-          pellentesque mi ac urna pretium imperdiet. Mauris ut ipsum metus. Ut
-          feugiat lectus id vestibulum consectetur.
-        </h4>
+    <>
+      <SEO title="Our Story" />
+      <PageStyles>
+        <HeadingStyles>
+          <h2>Our Story</h2>
+          <h3>Who We Are</h3>
+          <h4>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+            pellentesque mi ac urna pretium imperdiet. Mauris ut ipsum metus. Ut
+            feugiat lectus id vestibulum consectetur.
+          </h4>
+        </HeadingStyles>
         <Values />
-      </HeadingStyles>
-      <AboutGrid>
-        {aboutQs
-          .map((about) => <SingleAboutQ about={about} key={about.id} />)
-          .sort(compareOrder)}
-      </AboutGrid>
-    </PageStyles>
+        <AboutGrid>
+          {aboutQs
+            .map((about) => <SingleAboutQ about={about} key={about.id} />)
+            .sort(compareOrder)}
+        </AboutGrid>
+      </PageStyles>
+    </>
   );
 }
 

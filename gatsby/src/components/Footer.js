@@ -29,6 +29,7 @@ const FooterStyles = styled.footer`
   }
   .rights {
     grid-row: 2;
+    font-size: 1.5rem;
   }
   .site-map {
     grid-row: 2;
@@ -37,6 +38,8 @@ const FooterStyles = styled.footer`
   .site-map-list {
     display: flex;
     justify-content: space-around;
+    margin: 0;
+    font-size: 1.5rem;
   }
 
   .socials {
